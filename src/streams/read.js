@@ -1,6 +1,6 @@
-import fs from 'fs'
-import { dirname, join } from 'path'
-import { fileURLToPath } from 'url'
+import fs from 'node:fs'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const fileToRead = join(__dirname, 'files', 'fileToRead.txt')

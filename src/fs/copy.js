@@ -1,8 +1,8 @@
-import fs from 'fs/promises'
-import { constants } from 'fs'
+import fs from 'node:fs/promises'
+import { constants } from 'node:fs'
 
-import { dirname, join } from 'path'
-import { fileURLToPath } from 'url'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const srcDir = join(__dirname, 'files')

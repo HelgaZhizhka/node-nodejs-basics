@@ -1,6 +1,6 @@
-import fs from 'fs/promises'
-import { dirname, join } from 'path'
-import { fileURLToPath } from 'url'
+import fs from 'node:fs/promises'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const filePath = join(__dirname, 'files', 'fresh.txt')
@@ -15,9 +15,9 @@ const create = async () => {
       await fs.writeFile(filePath, content, 'utf8')
       console.log('File created successfully')
     } else {
-      throw err
+      console.error(err.message)
     }
-  }
+  } 
 }
 
-await create().catch((err) => console.error(err.message))
+await create()
