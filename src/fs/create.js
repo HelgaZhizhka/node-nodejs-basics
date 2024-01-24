@@ -15,9 +15,9 @@ const create = async () => {
       await fs.writeFile(filePath, content, 'utf8')
       console.log('File created successfully')
     } else {
-      console.error(err.message)
+      throw err
     }
   } 
 }
 
-await create()
+await create().catch(err => console.error(err.message));

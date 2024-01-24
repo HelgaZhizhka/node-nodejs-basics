@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import { createWriteStream } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -6,7 +6,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const fileToWrite = join(__dirname, 'files', 'fileToWrite.txt')
 
 const write = async () => {
-  const writeStream = fs.createWriteStream(fileToWrite)
+  const writeStream = createWriteStream(fileToWrite)
   process.stdin.on('data', (data) => {
     writeStream.write(data)
   })

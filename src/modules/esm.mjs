@@ -1,8 +1,11 @@
-import path from 'path'
-import { release, version } from 'os'
-import { createServer as createServerHttp } from 'http'
-const __filename = new URL(import.meta.url).pathname
-const __dirname = path.dirname(__filename)
+import { release, version } from 'node:os'
+import { createServer as createServerHttp } from 'node:http'
+import { fileURLToPath } from 'node:url'
+import { dirname, sep } from 'node:path'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
 
 import './files/c.js'
 
@@ -18,7 +21,7 @@ if (random > 0.5) {
 
 console.log(`Release ${release()}`)
 console.log(`Version ${version()}`)
-console.log(`Path segment separator is "${path.sep}"`)
+console.log(`Path segment separator is "${sep}"`)
 
 console.log(`Path to current file is ${__filename}`)
 console.log(`Path to current directory is ${__dirname}`)
@@ -35,11 +38,6 @@ myServer.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`)
   console.log('To terminate it, use Ctrl+C combination')
 })
-
-// module.exports = {
-//   unknownObject,
-//   myServer,
-// }
 
 export default {
   unknownObject,
