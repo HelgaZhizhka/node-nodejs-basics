@@ -12,7 +12,7 @@ const create = async () => {
     throw new Error('FS operation failed')
   } catch (err) {
     if (err.code === 'ENOENT') {
-      await fs.writeFile(filePath, content, 'utf8')
+      await fs.writeFile(filePath, content, 'utf8', { flag: 'wx' })
       console.log('File created successfully')
     } else {
       throw err

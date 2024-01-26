@@ -27,7 +27,7 @@ const copy = async () => {
       const srcFile = join(srcDir, file.name)
       const destFile = join(destDir, file.name)
       console.log(srcFile, destFile)
-      await fs.copyFile(srcFile, destFile)
+      await fs.cp(srcFile, destFile , { recursive: true, force: false })
     }
 
     console.log('Files copied successfully')
