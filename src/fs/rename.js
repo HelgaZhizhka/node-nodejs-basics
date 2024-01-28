@@ -1,4 +1,4 @@
- import fs from 'сfs/promises'
+ import fs from 'fs/promises'
  import { dirname, join } from 'node:path'
  import { fileURLToPath } from 'node:url'
 
